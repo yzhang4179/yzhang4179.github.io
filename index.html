@@ -5,39 +5,74 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Yixin Zhang is a robotics master's student and robot learning researcher at Georgia Tech.">
-    <meta name="keywords" content="Yixin Zhang,Georgia Tech,Robotics,Robot Learning,Imitation Learning,Planning,Diffusion Models,Machine Learning">
+    <meta name="description" content="Yixin Zhang is a robotics master's student at Georgia Tech working on generative learning and planning algorithms for generalizable robotic intelligence.">
+    <meta name="keywords" content="Yixin Zhang,Georgia Tech,Robotics,Robot Learning,Compositional Planning,World Action Models,Diffusion Models,Machine Learning">
     <meta property="og:title" content="Yixin Zhang">
-    <meta property="og:description" content="Robotics master's student at Georgia Tech working on generative algorithms for long-horizon imitation learning and planning.">
-    <meta property="og:image" content="pics/zhang7.png">
+    <meta property="og:description" content="Robotics master's student at Georgia Tech working on generative learning and planning algorithms for generalizable robotic intelligence.">
+    <meta property="og:image" content="pics/zhang7-avatar.jpg">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="shortcut icon" href="static/img/favicon-gt.ico">
+    <link rel="preload" href="static/fonts/Lato-400.woff2" as="font" type="font/woff2" crossorigin>
 
     <style>
+        @font-face {
+            font-family: "Lato";
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: local("Lato Regular"), local("Lato-Regular"), url("static/fonts/Lato-400.woff2") format("woff2");
+        }
+
+        @font-face {
+            font-family: "Lato";
+            font-style: italic;
+            font-weight: 400;
+            font-display: swap;
+            src: local("Lato Italic"), local("Lato-Italic"), url("static/fonts/Lato-400-Italic.woff2") format("woff2");
+        }
+
+        @font-face {
+            font-family: "Lato";
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+            src: local("Lato Bold"), local("Lato-Bold"), url("static/fonts/Lato-700.woff2") format("woff2");
+        }
+
+        @font-face {
+            font-family: "Lato";
+            font-style: italic;
+            font-weight: 700;
+            font-display: swap;
+            src: local("Lato Bold Italic"), local("Lato-BoldItalic"), url("static/fonts/Lato-700-Italic.woff2") format("woff2");
+        }
+
         :root {
-            --ink: #24313f;
-            --muted: #657181;
-            --line: #dde2e7;
-            --paper: #ffffff;
-            --soft: #f5f6f2;
-            --blue: #003057;
-            --gold: #b3a369;
-            --link: #8d5638;
+            --link: #2c5cc5;
+            --link-hover: #f09228;
+            --blue: #598be7;
+            --line: #e3e7ec;
+            --muted: #555;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
         }
 
         html {
-            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+            text-size-adjust: 100%;
         }
 
         body {
-            margin: 0;
-            background: var(--soft);
-            color: var(--ink);
-            font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-            font-size: 16px;
-            line-height: 1.55;
+            margin: 8px;
+            background: #fff;
+            color: #000;
+            font-family: "Lato", Verdana, Helvetica, sans-serif;
+            font-size: 14px;
+            line-height: 1.5;
         }
 
         a {
@@ -45,485 +80,439 @@
             text-decoration: none;
         }
 
-        a:hover,
-        a:focus {
-            color: var(--blue);
-            text-decoration: none;
+        a:focus,
+        a:hover {
+            color: var(--link-hover);
         }
 
-        .site-shell {
-            max-width: 940px;
+        p {
+            margin: 14px 0;
+        }
+
+        h2 {
+            margin: 0;
+            font-size: 22px;
+            font-weight: normal;
+            line-height: 1.3;
+        }
+
+        ul {
+            margin: 6px 0 0;
+            padding-left: 20px;
+        }
+
+        .page {
+            max-width: 900px;
             margin: 0 auto;
-            background: rgba(255, 255, 255, 0.96);
-            min-height: 100vh;
         }
 
-        .hero {
-            padding: 28px 34px 16px;
-            border-bottom: 1px solid var(--line);
+        /* Top block: text on the left, photo on the right */
+        .intro {
+            display: grid;
+            grid-template-columns: 67% 33%;
+            align-items: center;
         }
 
-        .avatar {
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            object-fit: cover;
-            object-position: 68% 46%;
-            border: 6px solid #fff;
-            box-shadow: 0 8px 22px rgba(36, 49, 63, 0.18);
-            background: #fff;
+        .intro > div {
+            padding: 20px;
         }
 
         .name {
-            margin: 0 0 6px;
-            color: var(--blue);
-            font-size: 2rem;
-            font-weight: 700;
-            line-height: 1.15;
-        }
-
-        .affiliation {
-            margin: 0 0 12px;
-            color: var(--muted);
-            font-size: 1rem;
-        }
-
-        .contact-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px 16px;
             margin: 0;
-            padding: 0;
-            list-style: none;
-            color: var(--muted);
-            font-size: 0.95rem;
-        }
-
-        .contact-list i {
-            width: 16px;
-            margin-right: 5px;
-            color: var(--gold);
+            padding-top: 20px;
+            font-size: 32px;
+            font-weight: normal;
+            line-height: 1.2;
             text-align: center;
         }
 
-        .content {
-            padding: 0 34px 28px;
+        .links {
+            text-align: center;
+        }
+
+        .photo {
+            display: block;
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: 68% 46%;
         }
 
         .section {
-            padding-top: 20px;
+            padding: 20px;
         }
 
-        .section-title {
-            margin: 0 0 10px;
-            padding-bottom: 7px;
-            border-bottom: 1px solid var(--line);
-            color: var(--blue);
-            font-size: 1.18rem;
+        .section > :last-child {
+            margin-bottom: 0;
+        }
+
+        /* Research highlights */
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .highlight-link {
+            display: block;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 0 0 1px var(--line);
+        }
+
+        a.highlight-link:hover,
+        a.highlight-link:focus-visible {
+            box-shadow: 0 0 0 2px var(--blue);
+        }
+
+        .highlight-media {
+            display: block;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+        }
+
+        .highlight-text {
+            margin: 8px 0 0;
+        }
+
+        .highlight-name {
+            color: var(--link);
             font-weight: 700;
         }
 
-        .lead-text {
-            margin: 0;
-            color: #354354;
-        }
-
-        .lead-text + .lead-text {
-            margin-top: 10px;
-        }
-
-        .entry {
+        /* Rows: thumbnail or logo on the left, text on the right */
+        .row {
             display: grid;
-            grid-template-columns: 132px minmax(0, 1fr);
-            gap: 16px;
-            align-items: start;
-            padding: 6px 0 12px;
-        }
-
-        .entry + .entry {
-            border-top: 1px solid var(--line);
-            padding-top: 14px;
-        }
-
-        .entry-media {
-            display: flex;
+            grid-template-columns: 30% 70%;
             align-items: center;
-            justify-content: center;
-            min-height: 98px;
+        }
+
+        .row > div {
+            padding: 20px;
+        }
+
+        .thumb {
+            display: block;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 0 0 1px var(--line);
         }
 
         .logo {
-            max-width: 104px;
-            max-height: 104px;
+            display: block;
+            max-width: 90px;
+            max-height: 90px;
+            margin: 0 auto;
             object-fit: contain;
         }
 
-        .pub-video {
-            width: 100%;
-            max-width: 132px;
-            border: 1px solid var(--line);
-            border-radius: 8px;
-            background: #111;
-        }
-
-        .entry-title {
-            margin: 0 0 3px;
-            color: var(--ink);
-            font-size: 1.02rem;
-            font-weight: 700;
-            line-height: 1.4;
-        }
-
-        .entry-meta {
-            margin: 0 0 8px;
-            color: var(--muted);
-            font-size: 0.94rem;
-        }
-
-        .entry-text {
-            margin: 0;
-        }
-
-        .entry-text ul {
-            margin: 8px 0 0;
-            padding-left: 19px;
-        }
-
-        .entry-text li {
-            margin-bottom: 4px;
-        }
-
-        .authors {
-            color: var(--muted);
-        }
-
-        .authors strong {
-            color: var(--ink);
-        }
-
-        .venue {
-            color: var(--ink);
+        .papertitle {
             font-weight: 700;
         }
 
-        .link-row {
-            margin-top: 7px;
-            color: var(--muted);
-        }
-
-        .pub-controls {
-            color: var(--muted);
-            font-size: 0.95rem;
-            font-weight: 400;
-        }
-
-        .pub-controls a,
-        .topic-line a {
+        .award {
             color: var(--link);
-            font-weight: 400;
-        }
-
-        .pub-controls a.activated,
-        .topic-line a.activated {
-            color: var(--ink);
-            cursor: default;
-        }
-
-        .topic-line {
-            margin: -4px 0 10px;
-            color: var(--muted);
-            font-size: 0.95rem;
-        }
-
-        .award-list {
-            margin: 0;
-            padding: 0;
-            list-style: none;
-        }
-
-        .award-list li {
-            display: flex;
-            justify-content: space-between;
-            gap: 20px;
-            padding: 7px 0;
-        }
-
-        .year {
-            flex: 0 0 auto;
-            color: var(--muted);
-            font-style: italic;
-        }
-
-        .skills {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 16px;
-        }
-
-        .skill-group {
-            padding: 14px 16px;
-            border: 1px solid var(--line);
-            border-radius: 8px;
-            background: #fbfbf9;
-        }
-
-        .skill-group h3 {
-            margin: 0 0 8px;
-            color: var(--blue);
-            font-size: 0.98rem;
             font-weight: 700;
         }
 
-        .skill-group p {
-            margin: 0;
-            color: #354354;
+        .row p {
+            margin: 6px 0 0;
         }
 
-        .robot-grid {
+        .muted {
+            color: var(--muted);
+        }
+
+        .robots {
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 16px;
+            margin-top: 14px;
         }
 
-        .robot-card {
+        .robots figure {
             margin: 0;
+            text-align: center;
         }
 
-        .robot-card img {
+        .robots img {
             display: block;
             width: 100%;
             aspect-ratio: 4 / 3;
             object-fit: contain;
-            padding: 8px;
-            border: 1px solid var(--line);
-            border-radius: 8px;
-            background: #fbfbf9;
-        }
-
-        .robot-card figcaption {
-            margin-top: 8px;
-            color: var(--muted);
-            font-size: 0.95rem;
-            font-weight: 600;
-            text-align: center;
+            margin-bottom: 6px;
         }
 
         .footer {
-            padding: 24px 34px 30px;
-            border-top: 1px solid var(--line);
-            color: var(--muted);
-            text-align: center;
-            font-size: 0.9rem;
+            margin: 14px 0;
+            font-size: small;
+            text-align: right;
         }
 
-        @media (max-width: 767px) {
-            .site-shell {
-                width: 100%;
-            }
-
-            .hero,
-            .content,
-            .footer {
-                padding-left: 22px;
-                padding-right: 22px;
-            }
-
-            .hero {
-                text-align: center;
-            }
-
-            .avatar {
-                margin-bottom: 18px;
-            }
-
-            .contact-list {
-                justify-content: center;
-            }
-
-            .entry {
+        @media (max-width: 600px) {
+            .intro {
                 grid-template-columns: 1fr;
-                gap: 10px;
             }
 
-            .entry-media {
-                justify-content: flex-start;
-            }
-
-            .pub-video {
+            .intro > div:last-child {
+                order: -1;
                 max-width: 220px;
+                margin: 0 auto;
+                padding-bottom: 0;
             }
 
-            .skills {
+            .name {
+                padding-top: 0;
+            }
+
+            .highlights,
+            .row {
                 grid-template-columns: 1fr;
             }
 
-            .robot-grid {
+            .row > div:first-child {
+                padding-bottom: 0;
+            }
+
+            .thumb {
+                max-width: 270px;
+            }
+
+            .logo {
+                margin: 0;
+            }
+
+            .robots {
                 gap: 8px;
-            }
-
-            .robot-card img {
-                padding: 4px;
-            }
-
-            .robot-card figcaption {
-                font-size: 0.82rem;
             }
         }
     </style>
 </head>
 
 <body>
-<main class="site-shell">
-    <header class="hero">
-        <div class="row align-items-center">
-            <div class="col-sm-12 col-md-3 text-md-right">
-                <img class="avatar" src="pics/zhang7.png" alt="Yixin Zhang">
-            </div>
-            <div class="col-sm-12 col-md-9">
-                <h1 class="name">Yixin Zhang</h1>
-                <p class="affiliation">Master in Robotics, Georgia Institute of Technology</p>
-                <ul class="contact-list">
-                    <li><i class="fa fa-envelope"></i><a href="mailto:yzhang4179@gatech.edu">yzhang4179@gatech.edu</a></li>
-                    <li><i class="fa fa-github"></i><a href="https://github.com/yzhang4179">Github</a></li>
-                    <li><i class="fa fa-twitter"></i><a href="https://x.com/yzhang4179">Twitter</a></li>
-                    <li><i class="fa fa-graduation-cap"></i><a href="https://scholar.google.com/citations?user=Wy4H2rsAAAAJ&amp;hl=zh-CN">Google Scholar</a></li>
-                </ul>
-            </div>
+<main class="page">
+    <header class="intro">
+        <div>
+            <h1 class="name">Yixin Zhang</h1>
+            <p>
+                I am a Master&rsquo;s student in Robotics at
+                <a href="https://www.gatech.edu/">Georgia Tech</a>, advised by
+                <span style="white-space: nowrap;">Prof. <a href="https://faculty.cc.gatech.edu/~danfei/">Danfei Xu</a>.</span>
+            </p>
+            <p>
+                My research focuses on developing generative learning and planning algorithms for generalizable robotic
+                intelligence. I am particularly interested in three questions: (1) How can robots compose learned
+                skills to plan beyond their training horizons? (2) How can robots learn and plan across different
+                levels of abstraction? (3) How can we build programmable and steerable VLA/WAM policies that can be
+                guided by a high-level reasoning system?
+            </p>
+            <p>
+                Across these directions, I aim to develop robotic intelligence systems grounded in the principles of
+                compositionality, modularity, and test-time computation.
+            </p>
+            <p class="links">
+                <a href="mailto:yzhang4179@gatech.edu">Email</a> &nbsp;/&nbsp;
+                <a href="https://github.com/yzhang4179">GitHub</a> &nbsp;/&nbsp;
+                <a href="https://x.com/yzhang4179">Twitter</a> &nbsp;/&nbsp;
+                <a href="https://scholar.google.com/citations?user=Wy4H2rsAAAAJ&amp;hl=zh-CN">Google Scholar</a>
+            </p>
+        </div>
+        <div>
+            <img class="photo" src="pics/zhang7-avatar.jpg" alt="Photo of Yixin Zhang">
         </div>
     </header>
 
-    <div class="content">
-        <section class="section" id="research">
-            <p class="lead-text">
-                I am a Master&rsquo;s student in Robotics at the
-                <a href="https://www.gatech.edu/">Georgia Institute of Technology</a>, working with Prof.
-                <a href="https://faculty.cc.gatech.edu/~danfei/">Danfei Xu</a> and Prof.
-                <a href="https://yongxin.ae.gatech.edu/">Yongxin Chen</a>. I maintain a GPA of 4.0/4.0 and expect to
-                graduate in May 2026.
-            </p>
-            <p class="lead-text">
-                My research focuses on developing generative algorithms for long-horizon imitation learning and planning.
-                I am particularly interested in compositional diffusion sampling methods that synthesize coherent
-                long-horizon plans from short-horizon data. I also work on leveraging video-action models to improve
-                policy learning through joint training with visual prediction and action generation.
-            </p>
-        </section>
-
-        <section class="section" id="publications">
-            <h2 class="section-title">
-                Publications
-                <span class="pub-controls">
-                    (
-                    <a class="activated" href="#publications">show selected</a> /
-                    <a href="#publications">show by date</a> /
-                    <a href="#topic-decision-making">show by topic</a>
-                    )
-                </span>
-            </h2>
-            <p class="topic-line" id="topic-decision-making"><strong>Topics:</strong> <a class="activated" href="#topic-decision-making">Decision Making</a></p>
-            <article class="entry">
-                <div class="entry-media">
-                    <video class="pub-video" playsinline autoplay muted loop preload="metadata">
-                        <source src="data/projects/2026-iclr-cvp.mp4" type="video/mp4">
-                    </video>
-                </div>
-                <div>
-                    <h3 class="entry-title">Compositional Visual Planning via Inference-Time Diffusion Scaling</h3>
-                    <p class="entry-text authors">
-                        <strong>Yixin Zhang</strong>, Yunhao Luo, Utkarsh Mishra, Woochul Shin, Yongxin Chen, Danfei Xu.
-                    </p>
-                    <p class="entry-text"><span class="venue">International Conference on Learning Representations (ICLR), 2026</span></p>
-                    <p class="link-row">
-                        <a href="https://comp-visual-planning.github.io/">Project website</a> /
-                        <a href="https://openreview.net/forum?id=EEONns7ae4">OpenReview</a> /
-                        <a href="https://arxiv.org/abs/2603.02646">arXiv</a>
-                    </p>
-                </div>
-            </article>
-        </section>
-
-        <section class="section" id="experience">
-            <h2 class="section-title">Experience</h2>
-            <article class="entry">
-                <div class="entry-media">
-                    <img class="logo" src="data/rl2-logo.png" alt="Robot Learning and Reasoning Lab logo">
-                </div>
-                <div>
-                    <h3 class="entry-title">Robot Learning and Reasoning Lab</h3>
-                    <p class="entry-meta">Research Assistant &middot; Sep. 2024 &ndash; Present &middot; Atlanta, Georgia</p>
-                    <div class="entry-text">
-                        <ul>
-                            <li><em>EgoWAM:</em> leveraging video-action models to improve policy learning through joint training with visual prediction and action generation.</li>
-                            <li><em>Compositional Visual Planning:</em> introducing an inference-time compositional sampling approach that scales to unseen and long-horizon reasoning tasks.</li>
-                        </ul>
-                    </div>
-                </div>
-            </article>
-            <article class="entry">
-                <div class="entry-media">
-                    <img class="logo" src="data/gt-logo.png" alt="Georgia Tech logo">
-                </div>
-                <div>
-                    <h3 class="entry-title">School of Interactive Computing, Georgia Tech</h3>
-                    <p class="entry-meta">Graduate Teaching Assistant &middot; Aug. 2025 &ndash; Present &middot; Atlanta, Georgia</p>
-                    <div class="entry-text">
-                        <ul>
-                            <li>CS7643 Deep Learning. Supervisor: Prof. Danfei Xu.</li>
-                            <li>CS8803 Advanced Mobile Robotics. Supervisor: Prof. Frank Dellaert.</li>
-                        </ul>
-                    </div>
-                </div>
-            </article>
-        </section>
-
-        <section class="section" id="awards">
-            <h2 class="section-title">Selected Awards and Honors</h2>
-            <ul class="award-list">
-                <li><span>First-class Undergraduate Academic Scholarship.</span><span class="year">2021&ndash;2023</span></li>
-                <li><span>National Scholarship.</span><span class="year">2022</span></li>
-            </ul>
-        </section>
-
-        <section class="section" id="skills">
-            <h2 class="section-title">Technical Skills</h2>
-            <div class="skills">
-                <div class="skill-group">
-                    <h3>Programming Languages</h3>
-                    <p>Python, C/C++, JavaScript, HTML/CSS, MATLAB.</p>
-                </div>
-                <div class="skill-group">
-                    <h3>Machine Learning</h3>
-                    <p>PyTorch, multi-node multi-GPU training.</p>
-                </div>
-                <div class="skill-group">
-                    <h3>Robotics</h3>
-                    <p>ROS, Gazebo, PyBullet, MuJoCo, SAPIEN.</p>
-                </div>
+    <section class="section" id="highlights">
+        <h2>Research Highlights</h2>
+        <p>Click a video to open its project page.</p>
+        <div class="highlights">
+            <div>
+                <a class="highlight-link" href="https://comp-visual-planning.github.io/" aria-label="Compositional Visual Planning project page">
+                    <video class="highlight-media" src="data/projects/2026-iclr-cvp-clip.mp4" poster="data/projects/2026-iclr-cvp-clip.jpg"
+                           playsinline autoplay muted loop preload="metadata"></video>
+                </a>
+                <p class="highlight-text"><a class="highlight-name" href="https://comp-visual-planning.github.io/">Compositional Visual Planning</a> &mdash; a training-free sampler that composes pretrained short-horizon video models into globally consistent long-horizon plans.</p>
             </div>
-        </section>
-
-        <section class="section" id="real-robot-experience">
-            <h2 class="section-title">Real Robot Experience</h2>
-            <div class="robot-grid">
-                <figure class="robot-card">
-                    <img src="pics/rby1.png" alt="RBY1 robot">
-                    <figcaption>RBY1</figcaption>
-                </figure>
-                <figure class="robot-card">
-                    <img src="pics/panda.png" alt="Panda robot arm">
-                    <figcaption>Panda</figcaption>
-                </figure>
-                <figure class="robot-card">
-                    <img src="pics/arx.png" alt="ARX robot arm">
-                    <figcaption>ARX Arm</figcaption>
-                </figure>
+            <div>
+                <a class="highlight-link" href="https://gatech-rl2.github.io/egowam.github.io/" aria-label="EgoWAM project page">
+                    <video class="highlight-media" src="data/projects/2026-corl-egowam-clip.mp4" poster="data/projects/2026-corl-egowam-clip.jpg"
+                           playsinline autoplay muted loop preload="metadata"></video>
+                </a>
+                <p class="highlight-text"><a class="highlight-name" href="https://gatech-rl2.github.io/egowam.github.io/">EgoWAM</a> &mdash; world action models that predict the future in abstract visual representations, transferring in-the-wild egocentric human data to robots.</p>
             </div>
-        </section>
-    </div>
+            <div>
+                <div class="highlight-link">
+                    <video class="highlight-media" src="data/projects/2026-steering-clip.mp4" poster="data/projects/2026-steering-clip.jpg"
+                           playsinline autoplay muted loop preload="metadata"></video>
+                </div>
+                <p class="highlight-text"><span class="highlight-name">Steering World Action Models</span> &mdash; agentic reasoning proposes subgoals that steer a pretrained world action model at inference time. <em>In submission.</em></p>
+            </div>
+        </div>
+    </section>
 
-    <footer class="footer">
-        Website template adapted from <a href="https://devinluo27.github.io/">Yunhao Luo</a>.
-    </footer>
+    <section id="publications">
+        <div class="section" style="padding-bottom: 0;">
+            <h2>Publications</h2>
+        </div>
+        <article class="row">
+            <div>
+                <video class="thumb" src="data/projects/2026-steering-clip.mp4" poster="data/projects/2026-steering-clip.jpg"
+                       playsinline autoplay muted loop preload="metadata"></video>
+            </div>
+            <div>
+                <span class="papertitle">Steering World Action Models in the Wild via Agentic Reasoning</span>
+                <br>
+                Project lead
+                <br>
+                <em>In submission to RSS</em>
+                <p class="muted">
+                    Introduces a hierarchical control framework that bridges high-level agentic reasoning and low-level
+                    execution, using subgoal proposals to steer pretrained world action models toward generalizable
+                    robotic manipulation.
+                </p>
+            </div>
+        </article>
+        <article class="row">
+            <div>
+                <video class="thumb" src="data/projects/2026-iclr-cvp-clip.mp4" poster="data/projects/2026-iclr-cvp-clip.jpg"
+                       playsinline autoplay muted loop preload="metadata"></video>
+            </div>
+            <div>
+                <span class="papertitle">Compositional Visual Planning via Inference-Time Diffusion Scaling</span>
+                <br>
+                <strong>Yixin Zhang</strong>,
+                Yunhao Luo,
+                Utkarsh Mishra,
+                Woochul Shin,
+                Yongxin Chen,
+                Danfei Xu
+                <br>
+                <em>ICLR</em>, 2026
+                <br>
+                <a href="https://comp-visual-planning.github.io/">project</a>
+                /
+                <a href="https://openreview.net/forum?id=EEONns7ae4">OpenReview</a>
+                /
+                <a href="https://arxiv.org/abs/2603.02646">arXiv</a>
+                /
+                <a href="https://github.com/yzhang4179/comp_visual_planning_release">code</a>
+                <p class="muted">
+                    Introduces a training-free compositional diffusion sampling framework that synthesizes globally
+                    consistent long-horizon visual plans from pretrained short-horizon models through inference-time
+                    message passing.
+                </p>
+            </div>
+        </article>
+        <article class="row">
+            <div>
+                <video class="thumb" src="data/projects/2026-corl-egowam-clip.mp4" poster="data/projects/2026-corl-egowam-clip.jpg"
+                       playsinline autoplay muted loop preload="metadata"></video>
+            </div>
+            <div>
+                <span class="papertitle">EgoWAM: World Action Models Beyond Pixels with In-the-Wild Egocentric Human Data</span>
+                <br>
+                Baoyu Li,
+                Xinchen Yin,
+                Mengying Lin,
+                <strong>Yixin Zhang</strong>,
+                Danfei Xu
+                <br>
+                <em>CoRL</em>, 2026
+                <br>
+                <span class="award">Distinguished Poster Award</span>, Egocentric Intelligence Research Summit
+                <br>
+                <a href="https://gatech-rl2.github.io/egowam.github.io/">project</a>
+                /
+                <a href="https://arxiv.org/abs/2607.08436">arXiv</a>
+                /
+                <a href="https://github.com/GaTech-RL2/EgoWAM">code</a>
+                <p class="muted">
+                    Investigates world action models that jointly learn action generation and future prediction in
+                    abstract visual representations, enabling effective human-to-robot transfer from in-the-wild
+                    egocentric data.
+                </p>
+            </div>
+        </article>
+    </section>
+
+    <section id="experience">
+        <div class="section" style="padding-bottom: 0;">
+            <h2>Experience</h2>
+        </div>
+        <article class="row">
+            <div>
+                <img class="logo" src="data/uw-logo.png" alt="University of Washington logo">
+            </div>
+            <div>
+                <span class="papertitle">Robotics and State Estimation Lab, University of Washington</span>
+                <br>
+                Research Assistant, Jul. 2026 &ndash; Present
+                <ul>
+                    <li>Training agentic VLMs at scale in simulation to enhance spatial reasoning and subgoal generation.</li>
+                    <li>Developing inference-time diffusion guidance mechanisms that enable agentic VLMs to steer world action models.</li>
+                </ul>
+            </div>
+        </article>
+        <article class="row">
+            <div>
+                <img class="logo" src="data/rl2-logo.png" alt="Robot Learning and Reasoning Lab logo">
+            </div>
+            <div>
+                <span class="papertitle">Robot Learning and Reasoning Lab, Georgia Tech</span>
+                <br>
+                Research Assistant, Sep. 2024 &ndash; May 2026
+                <ul>
+                    <li><em>EgoWAM</em>: leveraging video-action models to improve policy learning through joint training with visual prediction and action generation.</li>
+                    <li><em>Compositional Visual Planning</em>: introducing an inference-time compositional sampling approach that scales to unseen and long-horizon reasoning tasks.</li>
+                </ul>
+            </div>
+        </article>
+        <article class="row">
+            <div>
+                <img class="logo" src="data/gt-logo.png" alt="Georgia Tech logo">
+            </div>
+            <div>
+                <span class="papertitle">School of Interactive Computing, Georgia Tech</span>
+                <br>
+                Teaching Assistant, Aug. 2025 &ndash; May 2026
+                <ul>
+                    <li><em>CS 7643: Deep Learning</em>. Instructor: Danfei Xu</li>
+                    <li><em>CS 8803: Advanced Mobile Robotics</em>. Instructor: Frank Dellaert</li>
+                </ul>
+            </div>
+        </article>
+    </section>
+
+    <section class="section" id="service">
+        <h2>Service</h2>
+        <p>Reviewer: ICLR 2027, NeurIPS 2026, IEEE Robotics and Automation Letters (RA-L)</p>
+    </section>
+
+    <section class="section" id="real-robot-experience">
+        <h2>Real Robot Experience</h2>
+        <div class="robots">
+            <figure>
+                <img src="pics/rby1.png" alt="RBY1 robot">
+                <figcaption>RBY1</figcaption>
+            </figure>
+            <figure>
+                <img src="pics/panda.png" alt="Panda robot arm">
+                <figcaption>Panda</figcaption>
+            </figure>
+            <figure>
+                <img src="pics/arx.png" alt="ARX robot arm">
+                <figcaption>ARX Arm</figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <p class="footer">
+        Website template from <a href="https://github.com/jonbarron/jonbarron_website">Jon Barron</a>.
+    </p>
 </main>
 <!-- Cloudflare Web Analytics -->
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"dfd2c067220c49289f32b4267a020497"}'></script>
